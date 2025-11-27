@@ -18,6 +18,6 @@ Route::get('xin-chao', function () {
     echo "xin chao";
 });
 
-Route::get('/user/', [UserController::class, 'show']);
-
-
+Route::get('/', [UserController::class, 'show']);
+route::get('/register',[UserController::class,'show_2']);
+route::get('/login',[UserController::class,'show_3']);
