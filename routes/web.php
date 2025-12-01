@@ -1,6 +1,8 @@
 <?php
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+    use Illuminate\Support\Facades\Route;
+    use App\Http\Controllers\BookingController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('xin-chao', function () {
-    // return view('welcome');
-    echo "xin chao";
-});
+Route::get('/home/', [UserController::class, 'HomePage'])->name('home');
+Route::get('/about/', [UserController::class, 'about'])->name('about');
+Route::get('/menu/', [UserController::class, 'menu'])->name('menu');
 
-Route::get('/user/', [UserController::class, 'show']);
+Route::get('/contact/', [UserController::class, 'contact'])->name('contact');
+Route::post('/contact/', [UserController::class, 'submite'])->name('contact.submite');
 
+Route::get('/search', [BookingController::class, 'search'])->name('search');
+
+
+Route::get('/dat-ban/', [BookingController::class, 'ShowForm'])->name('ShowForm');
+Route::post('/dat-ban/', [BookingController::class, 'SubmiteForm'])->name('SubmiteForm');
 
